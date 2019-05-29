@@ -24,6 +24,7 @@ public class Test {
 
         ObjectInterceptor proxyObject = new ObjectInterceptor(target,transaction);
 
+        //代理类
         UserService userService = (UserService) Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), proxyObject);
         userService.addUser(new UserEntry("123","name"));
     }

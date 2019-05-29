@@ -24,8 +24,10 @@ public class ObjectInterceptor implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         trancation.before();
+                            //切入点：全部的方法
         method.invoke(this.target,args);
         trancation.after();
+        //上三行结合组成切面：advice + cutpoint
         return null;
     }
 }
